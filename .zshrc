@@ -61,7 +61,6 @@ alias lt="eza -lBaF --icons -T "
 alias lg="eza -lBaF --icons --git "
 
 # Shell integrations
-eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
 PATH="$HOME/Development/:$PATH"
