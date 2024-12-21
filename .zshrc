@@ -54,13 +54,17 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 
 # Aliases
+alias vi='nvim'
 alias vim='nvim'
 alias c='clear'
 alias ls="eza -lBaF --icons "
 alias lt="eza -lBaF --icons -T "
 alias lg="eza -lBaF --icons --git "
+setopt complete_aliases
+
+PATH="$HOME/Development/:$HOME/.config/tmux/plugins/tmuxifier/bin:$HOME/.local/bin:$PATH"
 
 # Shell integrations
-#eval "$(zoxide init --cmd cd zsh)"
+eval "$(tmuxifier init -)"
+eval "$(zoxide init --cmd cd zsh)" #install zoxide with curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
 
-PATH="$HOME/Development/:$PATH"
