@@ -35,6 +35,9 @@ bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey '^[w' kill-region
 
+bindkey "\e[1;5C" forward-word
+bindkey "\e[1;5D" backward-word
+
 # History
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
@@ -57,14 +60,17 @@ zstyle ':completion:*' menu no
 alias vi='nvim'
 alias vim='nvim'
 alias c='clear'
-alias ls="eza -lBaF --icons "
+alias ls="eza -F --icons "
 alias lt="eza -lBaF --icons -T "
 alias lg="eza -lBaF --icons --git "
 setopt complete_aliases
 
-PATH="$HOME/Development/:$HOME/.config/tmux/plugins/tmuxifier/bin:$HOME/.local/bin:$PATH"
+PATH="/mnt/development:$HOME/.config/tmux/plugins/tmuxifier/bin:$HOME/.local/bin:$PATH"
 
 # Shell integrations
 eval "$(tmuxifier init -)"
 eval "$(zoxide init --cmd cd zsh)" #install zoxide with curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
