@@ -6,8 +6,11 @@
         paths = [
           jq
           neovim
+          tmux
+          zsh
           fd
           ripgrep
+          zoxide
           fzf
           lazygit
         ];
