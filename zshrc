@@ -91,14 +91,7 @@ fi
 
 PATH="$HOME/.local/bin:$PATH"
 
-#export NVM_DIR="$HOME/.nvm"
-#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 source <(fzf --zsh)
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 
-#fabric vars
-export GOROOT=/usr/local/go
-export GOPATH=$HOME/go
-export PATH=$GOPATH/bin:$GOROOT/bin:$HOME/.local/bin:$PATH

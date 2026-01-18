@@ -4,15 +4,21 @@
       myPackages = pkgs.buildEnv {
         name = "my-packages";
         paths = [
-          jq
-          neovim
-          tmux
           zsh
-          fd
+          starship
+          alacritty
+          tmux
+          neovim
           ripgrep
           zoxide
           fzf
+          fd
+          git
+          w3m
+          gemini
+          glow
           lazygit
+          jq
         ];
       };
     };
