@@ -15,7 +15,6 @@
           fd
           git
           w3m
-          gemini
           glow
           lazygit
           jq
