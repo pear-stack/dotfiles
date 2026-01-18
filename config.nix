@@ -8,6 +8,7 @@
           starship
           alacritty
           tmux
+          tmuxp
           neovim
           ripgrep
           zoxide

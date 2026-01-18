@@ -15,13 +15,3 @@ windows:
     panes:
     - shell_command:
       - nvim ~/samba/obsidian/master/index.md
-  - window_name: gemini
-    layout: main-horizontal
-    options:
-      main-pane-height: 80%
-    panes:
-    - shell_command:
-      - cd ~/development/work/ && gemini
-      focus: True
-    - shell_command:
-        -
