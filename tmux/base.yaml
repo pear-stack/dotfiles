@@ -1,0 +1,27 @@
+session_name: default
+start_directory: /home/pear/development
+windows:
+  - window_name: nvim
+    layout: main-horizontal
+    options:
+      main-pane-height: 75%
+    panes:
+    - shell_command:
+      - nvim
+      focus: True
+    - shell_command:
+      -
+  - window_name: note
+    panes:
+    - shell_command:
+      - nvim ~/samba/obsidian/master/index.md
+  - window_name: gemini
+    layout: main-horizontal
+    options:
+      main-pane-height: 80%
+    panes:
+    - shell_command:
+      - cd ~/development/work/ && gemini
+      focus: True
+    - shell_command:
+        -
