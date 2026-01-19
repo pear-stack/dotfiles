@@ -1,5 +1,5 @@
 session_name: default
-start_directory: /home/pear/development
+start_directory: ~/development
 windows:
   - window_name: nvim
     layout: main-horizontal
