@@ -22,6 +22,10 @@
           lazygit
           jq
           bat
+          docker
+          luarocks
+          lua
+          tree-sitter
         ];
       };
     };
