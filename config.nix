@@ -6,19 +6,22 @@
         paths = [
           zsh
           starship
-          alacritty
+          kitty
           tmux
           tmuxp
           neovim
           ripgrep
           zoxide
           fzf
+          eza
           fd
           git
           w3m
+          gemini-cli
           glow
           lazygit
           jq
+          bat
         ];
       };
     };
