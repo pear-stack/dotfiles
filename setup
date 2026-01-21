@@ -12,3 +12,4 @@ ln -sf "$PWD/tmux" "$XDG_CONFIG_HOME"/tmux
 ln -sf "$PWD/config.nix" "$XDG_CONFIG_HOME"/nixpkgs/config.nix
 
 nix-env -iA nixpkgs.myPackages
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh

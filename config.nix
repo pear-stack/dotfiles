@@ -26,6 +26,14 @@
           luarocks
           lua
           tree-sitter
+          python3
+          cmake
+          rsync
+          curl
+          docker
+          socat
+          netcat
+          tldr
         ];
       };
     };
