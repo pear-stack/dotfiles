@@ -3,7 +3,6 @@ packages=(
      starship
      kitty
      tmux
-     tmuxp
      neovim
      ripgrep
      zoxide
@@ -30,7 +29,6 @@ packages=(
      tldr
      firefox
      stow
-     mako
      hypridle
      hyprpaper
      hyprlock

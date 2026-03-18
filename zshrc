@@ -49,29 +49,60 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 
 # Aliases
-alias work="tmuxp load ~/.config/tmux/work.yaml"
-alias home="tmuxp load ~/.config/tmux/base.yaml"
-
-alias vi='nvim'
-alias vim='nvim'
-alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
-
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
-function ddgs { w3m "https://duckduckgo.com/lite?q=$*"; }
-function gs {
-    gemini "$*" | glow -
-}
-alias '?'='ddgs'
-alias '??'='gs'
+if command -v nvim &> /dev/null; then
+  alias vi='nvim'
+  alias vim='nvim'
+fi
 
-export GEMINI_SYSTEM_MD="$HOME/.gemini/system.md"
+if command -v w3m &> /dev/null; then
+  function ddgs { w3m "https://duckduckgo.com/lite?q=$*"; }
+  alias '?'='ddgs'
+fi
+
+if command -v gemini &> /dev/null; then
+  export GEMINI_SYSTEM_MD="$HOME/.gemini/system.md"
+  function gs { gemini "$*" | glow - }
+  alias '??'='gs'
+fi
+
+if command -v fzf && command -v rg && command -v zoxide && command -v bat &> /dev/null; then
+  alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
+
+  function fs {
+    RELOAD='reload:rg --column --color=always --smart-case {q} || :'
+    OPENER='if [[ $FZF_SELECT_COUNT -eq 0 ]]; then
+            vim {1} +{2}     # No selection. Open the current line in Vim.
+          else
+            vim +cw -q {+f}  # Build quickfix list for the selected items.
+          fi'
+    fzf --disabled --ansi --multi \
+      --bind "start:$RELOAD" --bind "change:$RELOAD" \
+      --bind "enter:become:$OPENER" \
+      --bind "ctrl-o:execute:$OPENER" \
+      --bind 'alt-a:select-all,alt-d:deselect-all,ctrl-/:toggle-preview' \
+      --delimiter : \
+      --preview 'bat --style=full --color=always --highlight-line {2} {1}' \
+      --preview-window '~4,+{2}+4/3,<80(up)' \
+      --query "$*"
+  }
+
+  function fd {
+    local dir=$(
+      zoxide query --list --score |
+      fzf --height 40% --layout reverse --info inline \
+        --nth 2.. --tac --no-sort --query "$*" \
+        --bind 'enter:become:echo {2..}'
+    ) && cd "$dir"
+  }
+fi
 
 if command -v eza &> /dev/null; then
-  alias ls='eza -lh --group-directories-first --icons=auto --git'
-  alias lsa='ls -a'
+  alias ls='eza --icons --color'
+  alias lsa='eza -lh --group-directories-first --icons=auto --git'
   alias lt='eza --tree --level=2 --long --icons --git'
   alias lta='lt -a'
 fi
