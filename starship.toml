@@ -1,12 +1,18 @@
 add_newline = false
 command_timeout = 200
 format = """[$directory$git_branch$git_status$git_commit]($style)
-$character"""
+$hostname$character"""
 right_format = "$time$cmd_duration$status$jobs"
 
 [character]
 success_symbol = '[❯](bold green)'
 error_symbol = '[❯](bold red)'
+
+[hostname]
+ssh_only = false
+ssh_symbol = '🌏 '
+format = '[$ssh_symbol$hostname](bold blue) '
+disabled = false
 
 [directory]
 truncation_length = 5
@@ -54,7 +60,9 @@ disabled = false
 [status]
 symbol = "[✗](bold red)"
 success_symbol = "[](bold green)"
-format = '$symbol $status '
+format = '[$status]($style)'
+success_style = "bold green"
+failure_style = "bold red"
 map_symbol = false
 recognize_signal_code = true
 disabled = false
