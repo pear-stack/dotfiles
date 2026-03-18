@@ -69,7 +69,7 @@ if command -v gemini &> /dev/null; then
   alias '??'='gs'
 fi
 
-if command -v fzf && command -v rg && command -v zoxide && command -v bat &> /dev/null; then
+if command -v fzf &> /dev/null && command -v rg &> /dev/null && command -v zoxide &> /dev/null && command -v bat &> /dev/null; then
   alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
 
   function fs {
@@ -123,6 +123,7 @@ fi
 PATH="$HOME/.local/bin:$PATH"
 
 source <(fzf --zsh)
+unalias zi 2>/dev/null
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 
