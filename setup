@@ -1,15 +1,13 @@
 #!/bin/bash
 
-git submodule update --init --recursive
 export XDG_CONFIG_HOME="$HOME/.config"
+git submodule update --init --recursive
 
 source packages
-sudo pacman -Sy $packages
-#curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+sudo pacman -Sy ${packages[@]}
+if !command -v cargo &> /dev/null; then
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+fi
 
-#ln -sf "$PWD/zshrc" "$HOME"/.zshrc
-#ln -sf "$PWD/starship.toml" "$XDG_CONFIG_HOME"/starship.toml
-#ln -sf "$PWD/kitty" "$XDG_CONFIG_HOME"/kitty
-#ln -sf "$PWD/nvim" "$XDG_CONFIG_HOME"/nvim
-#ln -sf "$PWD/tmux" "$XDG_CONFIG_HOME"/tmux
-
+ln -sf "$PWD/.zshrc" "$HOME"/.zshrc
+stow . -t $XDG_CONFIG_HOME

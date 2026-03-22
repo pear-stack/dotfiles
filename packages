@@ -11,7 +11,7 @@ packages=(
      fd
      git
      w3m
-     gemini-cli
+     gcc
      glow
      lazygit
      jq
@@ -37,7 +37,7 @@ packages=(
      ttf-jetbrains-mono-nerd
      wofi
      xdg-desktop-portal-hyprland
-     spotify_player
+     spotify-player
      pipewire
      wireplumber
      wiremix
@@ -49,7 +49,9 @@ packages=(
      polkit-kde-agent
      lazydocker
      dunst
-     wireguard
      btop
+     opencode
+     television
+     mise
 )
 

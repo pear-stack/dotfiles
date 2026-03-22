@@ -120,7 +120,7 @@ if command -v zoxide &> /dev/null; then
   }
 fi
 
-PATH="$HOME/.local/bin:$PATH"
+PATH="$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
 
 source <(fzf --zsh)
 unalias zi 2>/dev/null
