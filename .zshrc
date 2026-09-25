@@ -63,16 +63,14 @@ if command -v w3m &> /dev/null; then
   alias '?'='ddgs'
 fi
 
-if command -v gemini &> /dev/null; then
-  export GEMINI_SYSTEM_MD="$HOME/.gemini/system.md"
-  function gs { gemini "$*" | glow - }
-  alias '??'='gs'
+if command -v opencode &> /dev/null; then
+  alias '??'='opencode run'
 fi
 
 if command -v fzf &> /dev/null && command -v rg &> /dev/null && command -v zoxide &> /dev/null && command -v bat &> /dev/null; then
   alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
 
-  function fs {
+  function ffs {
     RELOAD='reload:rg --column --color=always --smart-case {q} || :'
     OPENER='if [[ $FZF_SELECT_COUNT -eq 0 ]]; then
             vim {1} +{2}     # No selection. Open the current line in Vim.
@@ -90,7 +88,7 @@ if command -v fzf &> /dev/null && command -v rg &> /dev/null && command -v zoxid
       --query "$*"
   }
 
-  function fd {
+  function ffd {
     local dir=$(
       zoxide query --list --score |
       fzf --height 40% --layout reverse --info inline \
@@ -101,7 +99,7 @@ if command -v fzf &> /dev/null && command -v rg &> /dev/null && command -v zoxid
 fi
 
 if command -v eza &> /dev/null; then
-  alias ls='eza --icons --color'
+  alias ls='eza --icons --color=always'
   alias lsa='eza -lh --group-directories-first --icons=auto --git'
   alias lt='eza --tree --level=2 --long --icons --git'
   alias lta='lt -a'
@@ -127,3 +125,5 @@ unalias zi 2>/dev/null
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

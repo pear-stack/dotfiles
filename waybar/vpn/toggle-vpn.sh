@@ -1,5 +1,6 @@
 #!/bin/bash
 source "$(dirname "$0")/vpn.conf"
+echo $VPN_NAME
 if ip link show | grep -q "$VPN_NAME"; then
   #echo "$(date -u +'%Y-%m-%dT%H:%M:%SZ') - VPN DOWN" >>"$(dirname $0)/vpn.log"
   sudo wg-quick down "$VPN_NAME"

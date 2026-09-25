@@ -4,16 +4,14 @@
   "layer": "top",
   "position": "top",
   "spacing": 5,
-  "margin-top": 5,
+  "margin-top": 10,
   "margin-right": 10,
   "margin-left": 10,
-  "height": 32,
+  "height": 36,
   "modules-left": ["hyprland/workspaces"],
-  "modules-center": ["clock"],
+  //"modules-center": ["clock"],
   "modules-right": [
     "custom/vpn",
-    "custom/tunel-imx",
-    "custom/tunel-pqm",
     "network",
     "pulseaudio",
     "cpu",
@@ -127,27 +125,5 @@
     "exec": "~/.config/waybar/vpn/check-vpn-status.sh",
     "on-click": "~/.config/waybar/vpn/toggle-vpn.sh",
     "on-click-right": "kitty -e sudo ~/.config/waybar/select.sh"
-  },
-  "custom/tunel-imx": {
-    "format": "{}",
-    "interval": 5,
-    "return-type": "json",
-    "exec": "~/.config/waybar/tunel_imx/check-tunel-status.sh",
-    "on-click": "~/.config/waybar/tunel_imx/toggle-tunel.sh"
-  },
-  "custom/tunel-pqm": {
-    "format": "{}",
-    "interval": 5,
-    "return-type": "json",
-    "exec": "~/.config/waybar/tunel_pqm/check-tunel-status.sh",
-    "on-click": "~/.config/waybar/tunel_pqm/toggle-tunel.sh"
-  },
-  "custom/work-mode": {
-    "format": "{}",
-    "interval": 5,
-    "return-type": "json",
-    "exec": "~/.config/waybar/set-work-mode/check-mode.sh",
-    "on-click": "~/.config/waybar/set-work-mode/toggle-mode.sh"
-  },
-
+  }
 }

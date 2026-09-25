@@ -10,10 +10,11 @@ packages=(
      eza
      fd
      git
+     lazygit
+     github-cli
      w3m
      gcc
      glow
-     lazygit
      jq
      bat
      luarocks
@@ -53,5 +54,9 @@ packages=(
      opencode
      television
      mise
+     less
+     wireguard-tools
+     playerctl
+     base-devel
 )
 

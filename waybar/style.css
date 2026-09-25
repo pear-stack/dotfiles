@@ -1,16 +1,16 @@
 window#waybar {
-  opacity: 0.8;
+  opacity: 0.85;
   background: transparent;
 }
 
 * {
-  background-color: #343534;
+  background-color: #282828;
   color: #ffffff;
   border: none;
-  border-radius: 7;
+  border-radius: 7px;
   min-height: 0;
   font-family: 'JetBrainsMono Nerd Font';
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .modules-left {
@@ -36,8 +36,8 @@ window#waybar {
 #battery,
 #pulseaudio {
   min-width: 12px;
-  margin-right: 5px;
-  margin-left: 5px;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 #network {
@@ -58,18 +58,12 @@ window#waybar {
   opacity: 0;
 }
 
-#custom-vpn,
-#custom-tunel-imx,
-#custom-tunel-pqm,
-#custom-work-mode {
-  margin: 0 5px;
+#custom-vpn {
+  margin: 0 8px 0 8px;
   color: #a55555;
 }
 
-#custom-vpn.active,
-#custom-tunel-imx.active,
-#custom-tunel-pqm.active,
-#custom-work-mode.active {
+#custom-vpn.active {
   color: #a6e3a1;
 }
 
