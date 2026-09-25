@@ -10,6 +10,7 @@ packages=(
      eza
      fd
      git
+     git-delta
      lazygit
      github-cli
      w3m

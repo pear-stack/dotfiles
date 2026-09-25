@@ -10,4 +10,6 @@ if !command -v cargo &> /dev/null; then
 fi
 
 ln -sf "$PWD/.zshrc" "$HOME"/.zshrc
+ln -sf "$PWD/.gitconfig" "$HOME"/.gitconfig
+
 stow . -t $XDG_CONFIG_HOME
